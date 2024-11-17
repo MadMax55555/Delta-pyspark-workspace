@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  delta_quickstart:
+    build:
+      context: ./delta-pyspark
+      dockerfile: Dockerfile_delta_quickstart
+    container_name: delta_quickstart
+    ports:
+      - "8888-8889:8888-8889"
+      - "4040:4040"
+    volumes:
+      - ./delta-pyspark/workspace:/opt/spark/work-dir/workspace:rw
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    command: >
+        bash -c "chown -R NBuser:NBuser /opt/spark/work-dir/workspace && start.sh jupyter"
