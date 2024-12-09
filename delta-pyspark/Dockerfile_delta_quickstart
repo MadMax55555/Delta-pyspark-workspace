@@ -63,7 +63,8 @@ RUN chown -R ${NBuser}:${GROUP} /home/${NBuser}/ \
 
 RUN mkdir -p ${WORKSPACE_DIR} \
   && chown -R ${NBuser}:${GROUP} ${WORKSPACE_DIR} \
-  && chmod -R 775 ${WORKSPACE_DIR}
+  && chmod -R 777 ${WORKSPACE_DIR}
+
 
 ENV WORKSPACE_DIR=${WORKSPACE_DIR}
 
